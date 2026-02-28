@@ -3,18 +3,8 @@ import sys
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.abspath(os.path.join(BASE_DIR, '..')))
 
+import os
 from argparse import ArgumentParser
-
-
-def gaussian_count_from_ply_header(ply_path: str) -> int:
-    with open(ply_path, "rb") as f:
-        for line in f:
-            line = line.decode("ascii", errors="ignore").strip()
-            if line.startswith("element vertex"):
-                return int(line.split()[-1])
-            if line == "end_header":
-                break
-    raise ValueError(f"Could not find 'element vertex' in PLY header: {ply_path}")
 
 mipnerf360_outdoor_scenes = ["bicycle"]
 mipnerf360_indoor_scenes = []
@@ -33,18 +23,11 @@ parser.add_argument("--output_path", default="./eval")
 
 args, _ = parser.parse_known_args()
 
-_default_ply = os.path.join("model_output", "point_cloud", "iteration_30000", "point_cloud.ply")
-if os.path.exists(_default_ply):
-    try:
-        print(f"[Gaussian count] {_default_ply}: {gaussian_count_from_ply_header(_default_ply)}")
-    except Exception as e:
-        print(f"[Gaussian count] Failed to read {_default_ply}: {e}")
-
 all_scenes = []
 all_scenes.extend(mipnerf360_outdoor_scenes)
-all_scenes.extend(mipnerf360_indoor_scenes)
-all_scenes.extend(tanks_and_temples_scenes)
-all_scenes.extend(deep_blending_scenes)
+# all_scenes.extend(mipnerf360_indoor_scenes)
+# all_scenes.extend(tanks_and_temples_scenes)
+# all_scenes.extend(deep_blending_scenes)
 
 if not args.skip_training or not args.skip_rendering:
     parser.add_argument('--mipnerf360', "-m360", required=True, type=str)
