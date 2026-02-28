@@ -6,8 +6,8 @@ sys.path.append(os.path.abspath(os.path.join(BASE_DIR, '..')))
 import os
 from argparse import ArgumentParser
 
-mipnerf360_outdoor_scenes = ["flowers", "garden", "stump", "treehill"]
-mipnerf360_indoor_scenes = []
+mipnerf360_outdoor_scenes = ["bicycle", "flowers", "garden", "stump", "treehill"]
+mipnerf360_indoor_scenes = ["room", "counter", "kitchen", "bonsai"]
 tanks_and_temples_scenes = []
 deep_blending_scenes = []
 # mipnerf360_outdoor_scenes = ["bicycle", "flowers", "garden", "stump", "treehill"]

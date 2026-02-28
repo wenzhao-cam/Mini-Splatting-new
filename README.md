@@ -98,7 +98,22 @@ cd ms_c
 python run.py -s <dataset path> -m <model path>
 ```
 
-
+# update: 2026-02-28
+### Evaluation add FPS and Number of Guassian Splat
+#### Mini-splatting
+```
+cd ms
+```
+```
+python eval_wenzhao.py -m360  ../../data/MipNeRF360/360_v2/
+```
+#### Mini-splatting-D
+```
+cd ms_d
+```
+```
+python eval_wenzhao.py -m360  ../../data/MipNeRF360/360_v2/
+```
 
 **Acknowledgement.** This project is built upon [3DGS](https://github.com/graphdeco-inria/gaussian-splatting).
 
