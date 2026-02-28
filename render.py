@@ -46,8 +46,8 @@ def render_set(model_path, name, iteration, views, gaussians, pipeline, backgrou
         times.append(elapsed)
         
         gt = view.original_image[0:3, :, :]
-        # torchvision.utils.save_image(rendering, os.path.join(render_path, '{0:05d}'.format(idx) + ".png"))
-        # torchvision.utils.save_image(gt, os.path.join(gts_path, '{0:05d}'.format(idx) + ".png"))
+        torchvision.utils.save_image(rendering, os.path.join(render_path, '{0:05d}'.format(idx) + ".png"))
+        torchvision.utils.save_image(gt, os.path.join(gts_path, '{0:05d}'.format(idx) + ".png"))
 
     if len(times) > 3:
         avg_time = sum(times[3:]) / (len(times) - 3)
