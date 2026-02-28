@@ -64,7 +64,7 @@ def render_set(model_path, name, iteration, views, gaussians, pipeline, backgrou
     print(f"fps {fps}")
 
     # save fps and times to JSON under render_path
-    fps_json_path = os.path.join(render_path, "fps.json")
+    fps_json_path = os.path.join(model_path, "fps.json")
     fps_payload = {
         "fps": fps,
         "time_per_image": time_per_image,

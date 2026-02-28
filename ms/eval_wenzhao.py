@@ -6,7 +6,7 @@ sys.path.append(os.path.abspath(os.path.join(BASE_DIR, '..')))
 import os
 from argparse import ArgumentParser
 
-mipnerf360_outdoor_scenes = ["bicycle"]
+mipnerf360_outdoor_scenes = ["flowers", "garden", "stump", "treehill"]
 mipnerf360_indoor_scenes = []
 tanks_and_temples_scenes = []
 deep_blending_scenes = []
@@ -25,9 +25,9 @@ args, _ = parser.parse_known_args()
 
 all_scenes = []
 all_scenes.extend(mipnerf360_outdoor_scenes)
-# all_scenes.extend(mipnerf360_indoor_scenes)
-# all_scenes.extend(tanks_and_temples_scenes)
-# all_scenes.extend(deep_blending_scenes)
+all_scenes.extend(mipnerf360_indoor_scenes)
+all_scenes.extend(tanks_and_temples_scenes)
+all_scenes.extend(deep_blending_scenes)
 
 if not args.skip_training or not args.skip_rendering:
     parser.add_argument('--mipnerf360', "-m360", required=True, type=str)
