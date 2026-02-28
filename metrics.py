@@ -49,6 +49,8 @@ def evaluate(model_paths):
             full_dict_polytopeonly[scene_dir] = {}
             per_view_dict_polytopeonly[scene_dir] = {}
 
+            # read number of guassian / splats from point_cloud/iteration_30000/point_cloud.ply
+
             test_dir = Path(scene_dir) / "test"
 
             for method in os.listdir(test_dir):
